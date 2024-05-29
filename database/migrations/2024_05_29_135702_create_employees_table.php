@@ -23,6 +23,7 @@ return new class extends Migration
             $table->date('dob');
             $table->string('zip_code');
             $table->date('joined_at');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
