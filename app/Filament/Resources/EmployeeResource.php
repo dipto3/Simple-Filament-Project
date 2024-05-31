@@ -17,7 +17,8 @@ class EmployeeResource extends Resource
 {
     protected static ?string $model = Employee::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
+    protected static ?string $navigationGroup = 'Employee Management';
 
     public static function form(Form $form): Form
     {
@@ -55,8 +56,6 @@ class EmployeeResource extends Resource
                         ->required(),
 
                     ])->columns(3),
-
-                
                 Forms\Components\TextInput::make('zip_code')
                     ->required()
                     ->maxLength(255),
