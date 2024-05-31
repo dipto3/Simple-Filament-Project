@@ -37,7 +37,8 @@ class EmployeeResource extends Resource
                     ->numeric(),
                 Forms\Components\Section::make('User Name')
                     ->description('Put the user name details in.')
-                    ->schema([Forms\Components\TextInput::make('first_name')
+                    ->schema([
+                        Forms\Components\TextInput::make('first_name')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('middle_name')
@@ -45,13 +46,21 @@ class EmployeeResource extends Resource
                 Forms\Components\TextInput::make('last_name')
                     ->maxLength(255),])->columns(3),  
                 
-                Forms\Components\DatePicker::make('dob')
-                    ->required(),
+                Forms\Components\Section::make('Necessary Date Select')
+                    ->description('Put the necessary date details in.')
+                    ->schema([
+                        Forms\Components\DatePicker::make('dob')
+                        ->required(),
+                        Forms\Components\DatePicker::make('joined_at')
+                        ->required(),
+
+                    ])->columns(3),
+
+                
                 Forms\Components\TextInput::make('zip_code')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\DatePicker::make('joined_at')
-                    ->required(),
+                
             ]);
     }
 
