@@ -11,6 +11,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\Relationship;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class CityResource extends Resource
@@ -26,9 +27,12 @@ class CityResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('state_id')
-                    ->required()
-                    ->numeric(),
+                Forms\Components\Select::make('state_id')
+                    ->relationship(name:'city',titleAttribute:'name')
+                    ->searchable()
+                    ->preload()
+                    ->required(),
+                   
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
