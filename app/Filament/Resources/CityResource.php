@@ -32,7 +32,6 @@ class CityResource extends Resource
                     ->searchable()
                     ->preload()
                     ->required(),
-                   
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
