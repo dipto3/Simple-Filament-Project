@@ -17,13 +17,11 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Infolists\Components\Section;
-// use Filament\Notifications\Collection;
 use Illuminate\Support\Collection;
 
 class EmployeeResource extends Resource
 {
     protected static ?string $model = Employee::class;
-
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
     protected static ?string $navigationGroup = 'Employee Management';
 
@@ -82,12 +80,10 @@ class EmployeeResource extends Resource
                         ->required(),
                         Forms\Components\DatePicker::make('joined_at')
                         ->required(),
-
                     ])->columns(3),
                 Forms\Components\TextInput::make('zip_code')
                     ->required()
                     ->maxLength(255),
-                
             ]);
     }
 
