@@ -28,7 +28,7 @@ class CityResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('state_id')
-                    ->relationship(name:'city',titleAttribute:'name')
+                    ->relationship(name:'state',titleAttribute:'name')
                     ->searchable()
                     ->preload()
                     ->required(),
