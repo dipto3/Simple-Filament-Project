@@ -32,15 +32,15 @@ class EmployeeResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('country_id')
-                ->relationship(name: 'country',titleAttribute:'name') 
-                ->searchable()
-                ->preload()
-                ->live()
-                ->afterStateUpdated(function(Set $set){
-                    $set('state_id',null);
-                    $set('city_id',null);
-                })
-                ->required(),
+                    ->relationship(name: 'country',titleAttribute:'name') 
+                    ->searchable()
+                    ->preload()
+                    ->live()
+                    ->afterStateUpdated(function(Set $set){
+                        $set('state_id',null);
+                        $set('city_id',null);
+                    })
+                    ->required(),
                 Forms\Components\Select::make('state_id')
                     ->options(fn (Get $get): Collection => State::query()
                         ->where('country_id', $get('country_id'))
