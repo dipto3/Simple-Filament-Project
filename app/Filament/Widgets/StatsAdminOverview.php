@@ -13,7 +13,7 @@ class StatsAdminOverview extends BaseWidget
     protected function getStats(): array
     {
         return [
-            Stat::make('Country', Country::count()),
+            Stat::make('Country', Country::count())->chart([1,12,30,2])->color('success'),
             Stat::make('State', State::count()),
             Stat::make('City', City::count()),
         ];
