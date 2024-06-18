@@ -13,7 +13,11 @@ class DepartmentPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        if($user->hasPermissionTo('Departments'))
+        {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -21,7 +25,11 @@ class DepartmentPolicy
      */
     public function view(User $user, Department $department)
     {
-        //
+        if($user->hasPermissionTo('View-Department'))
+        {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -29,7 +37,11 @@ class DepartmentPolicy
      */
     public function create(User $user)
     {
-        //
+        if($user->hasPermissionTo('Create Department'))
+        {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -37,7 +49,11 @@ class DepartmentPolicy
      */
     public function update(User $user, Department $department)
     {
-        //
+        if($user->hasPermissionTo('Edit Department'))
+        {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -45,7 +61,11 @@ class DepartmentPolicy
      */
     public function delete(User $user, Department $department)
     {
-        //
+        if($user->hasPermissionTo('Delete Department'))
+        {
+            return true;
+        }
+        return false;
     }
 
     /**
