@@ -9,8 +9,10 @@ use App\Models\Employee;
 use App\Models\User;
 use App\Policies\DepartmentPolicy;
 use App\Policies\EmployeePolicy;
+use App\Policies\RolePolicy;
 use App\Policies\UserPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Spatie\Permission\Models\Role;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,7 @@ class AuthServiceProvider extends ServiceProvider
         User::class => UserPolicy::class,
         Employee::class => EmployeePolicy::class,
         Department::class => DepartmentPolicy::class,
+        Role::class => RolePolicy::class,
     ];
 
     /**
