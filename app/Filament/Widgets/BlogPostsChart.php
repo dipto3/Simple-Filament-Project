@@ -6,7 +6,7 @@ use App\Models\Employee;
 use Filament\Widgets\ChartWidget;
 use Flowframe\Trend\Trend;
 use Flowframe\Trend\TrendValue;
- 
+use Illuminate\Support\Facades\Auth;
 
 class BlogPostsChart extends ChartWidget
 {
@@ -46,4 +46,6 @@ class BlogPostsChart extends ChartWidget
     {
         return 'line';
     }
+
+    
 }
