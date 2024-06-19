@@ -17,6 +17,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Infolists\Components\Section;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
+
 use Illuminate\Support\Collection;
 
 class EmployeeResource extends Resource
@@ -39,6 +42,9 @@ class EmployeeResource extends Resource
                         $set('city_id',null);
                     })
                     ->required(),
+                    SpatieMediaLibraryFileUpload::make('Image')
+                    ->multiple(),
+    
                 Forms\Components\Select::make('state_id')
                     ->options(fn (Get $get): Collection => State::query()
                         ->where('country_id', $get('country_id'))
@@ -103,6 +109,7 @@ class EmployeeResource extends Resource
                 Tables\Columns\TextColumn::make('department.name')
                     ->numeric()
                     ->sortable(),
+                SpatieMediaLibraryImageColumn::make('images'),    
                 Tables\Columns\TextColumn::make('first_name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('middle_name')
