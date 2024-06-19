@@ -5,11 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
-class Employee extends Model
+use Spatie\Permission\Traits\HasRoles;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+class Employee extends Model implements HasMedia
 {
     use SoftDeletes;
-    use HasFactory;
+    use HasFactory,InteractsWithMedia;
     protected $guarded = [];
 
    public function country()
